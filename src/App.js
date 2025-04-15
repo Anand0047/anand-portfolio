@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Header from './components/Header';
+import Header from './components/Header1';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
 import About from './components/About';
@@ -45,21 +45,38 @@ function App() {
 }
 
 function HomeSection() {
-  const handleDownload = (e) => {
+  const handleDownload = async (e) => {
     e.preventDefault();
     
-    // Correct path - file should be in public folder
-    const resumeUrl = process.env.PUBLIC_URL + '/Anandhraj_resume.pdf';
-    
-    // Alternative if the above doesn't work:
-    // const resumeUrl = '/Anandhraj_resume.pdf';
-    
-    const link = document.createElement('a');
-    link.href = resumeUrl;
-    link.download = 'AnandhRaj_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      // Method 1: Direct download (works if file exists in public folder)
+      const pdfUrl = process.env.PUBLIC_URL + '/assets/documents/Anandhraj_resume.pdf';
+      const response = await fetch(pdfUrl);
+      
+      if (!response.ok) {
+        // Fallback to Method 2 if file not found
+        throw new Error('Local file not found, using fallback');
+      }
+  
+      const blob = await response.blob();
+      const downloadUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.download = 'AnandhRaj_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(downloadUrl);
+  
+    } catch (error) {
+      console.warn('Local download failed, using fallback:', error);
+      
+      // Method 2: Cloud fallback (Google Drive/Dropbox)
+      window.open(
+        'https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_FILE_ID',
+        '_blank'
+      );
+    }
   };
 
   useEffect(() => {
