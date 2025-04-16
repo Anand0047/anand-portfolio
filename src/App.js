@@ -47,7 +47,7 @@ function App() {
 function HomeSection() {
   const downloadResume = async () => {
     window.open(
-      `https://drive.google.com/uc?export=download&id=1wpEiqeJdSGMsoetd-Tib3bYnzXbYedUz`,
+      `https://drive.google.com/file/d/1wpEiqeJdSGMsoetd-Tib3bYnzXbYedUz/view?usp=sharing`,
       '_blank'
     );
   };
