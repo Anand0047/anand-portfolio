@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Header from './components/Header1';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
 import About from './components/About';
@@ -45,38 +45,11 @@ function App() {
 }
 
 function HomeSection() {
-  const handleDownload = async (e) => {
-    e.preventDefault();
-    
-    try {
-      // Method 1: Direct download (works if file exists in public folder)
-      const pdfUrl = process.env.PUBLIC_URL + '/assets/documents/Anandhraj_resume.pdf';
-      const response = await fetch(pdfUrl);
-      
-      if (!response.ok) {
-        // Fallback to Method 2 if file not found
-        throw new Error('Local file not found, using fallback');
-      }
-  
-      const blob = await response.blob();
-      const downloadUrl = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = downloadUrl;
-      link.download = 'AnandhRaj_Resume.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(downloadUrl);
-  
-    } catch (error) {
-      console.warn('Local download failed, using fallback:', error);
-      
-      // Method 2: Cloud fallback (Google Drive/Dropbox)
-      window.open(
-        'https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_FILE_ID',
-        '_blank'
-      );
-    }
+  const downloadResume = async () => {
+    window.open(
+      `https://drive.google.com/uc?export=download&id=1wpEiqeJdSGMsoetd-Tib3bYnzXbYedUz`,
+      '_blank'
+    );
   };
 
   useEffect(() => {
@@ -167,7 +140,7 @@ function HomeSection() {
           <a 
             href="/AnandhRaj_Resume.pdf" 
             className="cyber-button"
-            onClick={handleDownload}
+            onClick={downloadResume}
           >
             <span></span>
             <span></span>
