@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/anand-portfolio/static/css/main.1fb44fda.css",
+    "main.js": "/anand-portfolio/static/js/main.f09085bd.js",
+    "index.html": "/anand-portfolio/index.html",
+    "main.1fb44fda.css.map": "/anand-portfolio/static/css/main.1fb44fda.css.map",
+    "main.f09085bd.js.map": "/anand-portfolio/static/js/main.f09085bd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1fb44fda.css",
+    "static/js/main.f09085bd.js"
+  ]
+}
