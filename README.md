@@ -1,4 +1,4 @@
-<big><h1>React Portfolio</h1></big>  
+<big><h1>React Portfolio - Neo retro themed portfolio</h1></big>  
           
 <h2>📌 Overview </h2>
 This is my personal portfolio built with React.js to showcase my projects, skills, and professional experience. The portfolio features a modern, responsive design with smooth animations and interactive elements.
