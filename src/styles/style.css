@@ -1,6 +1,6 @@
 body {
     font-family: 'Orbitron', sans-serif;
-    background-color: #0a0a0a;
+    background-color: #000000;
     color: #00ff00;
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #0a0a0a;
+    background: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,7 +112,7 @@ body {
 }
 .retry-btn:hover {
     background: #00fffc;
-    color: #0a0a0a;
+    color: #000000;
 }
 @keyframes spin {
     0% { transform: rotate(0deg); }
@@ -258,7 +258,7 @@ section {
 #home {
     position: relative;
     overflow: hidden;
-    background-color: #0a0a0a;
+    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -520,7 +520,7 @@ section {
 }
 
 .social-icon:hover {
-    color: #0a0a0a;
+    color: #000000;
     transform: translateY(-3px);
     box-shadow: 0 0 15px rgba(0, 255, 252, 0.5);
 }
@@ -551,8 +551,13 @@ section {
     text-align: center;
 }
 
+
 .about-content, .contact-content {
-    max-width: 800px;
+      font-family: 'Syncopate', sans-serif;
+        font-size: 25px;
+         letter-spacing: 1px;
+        line-height: 1.1;
+    max-width: 1100px;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 2rem;
     border-radius: 10px;
@@ -642,7 +647,7 @@ section {
 } */
   /* Experience Section */
   #experience {
-    background-color: #0a0a0a;
+    background-color: #000000;
     padding: 4rem 0;
 }
 
@@ -689,7 +694,7 @@ section {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #0a0a0a;
+    background-color: #000000;
     border: 2px solid #00fffc;
     display: flex;
     justify-content: center;
@@ -810,7 +815,7 @@ section {
 }
 /* Resume Section */
 #resume {
-    background-color: #0a0a0a;
+    background-color: #000000;
     padding: 4rem 0;
 }
 
@@ -905,7 +910,61 @@ button:hover {
     margin-top: 1rem;
     z-index: 1;
 }
+.project-tech {
+  border: 2px solid rgb(233, 79, 182);
+  padding: 4px 8px;
+  border-radius: 10px;
+  display: inline-block;
+}
+/* Coding Profiles - No Overlap Solution */
+.coding-profiles-responsive {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
 
+.coding-profile-card {
+  flex: 1 1 calc(50% - 2rem); /* Two cards per row with gap accounted for */
+  min-width: 300px;
+  max-width: 400px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #00ff00;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-sizing: border-box; /* Ensures padding is included in width */
+  transition: all 0.3s ease;
+}
+
+.coding-profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .coding-profile-card {
+    flex: 1 1 100%; /* Full width on mobile */
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .coding-profile-card {
+    flex: 1 1 calc(33.333% - 2rem); /* Three cards on extra large screens */
+  }
+}
 .social-links a {
     color: #00ff00;
     text-decoration: none;
@@ -919,6 +978,10 @@ button:hover {
 }
 /* Work Section */
 .work-grid {
+    font-family: 'Syncopate', sans-serif;
+        font-size: 20px;
+         letter-spacing: 1px;
+        line-height: 1.1;
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 gap: 2rem;
@@ -1056,12 +1119,12 @@ margin-bottom: 0.5rem;
 
 .client-logo-slider::before {
     left: 0;
-    background: linear-gradient(to right, #0a0a0a, transparent);
+    background: linear-gradient(to right, #000000, transparent);
 }
 
 .client-logo-slider::after {
     right: 0;
-    background: linear-gradient(to left, #0a0a0a, transparent); 
+    background: linear-gradient(to left, #000000, transparent); 
 }
 
 /* Footer */
@@ -1330,7 +1393,7 @@ border-top: 1px solid rgba(0, 255, 0, 0.3);
   /* Skills Section */
 .skills-section {
     padding: 4rem 2rem;
-    background-color: #0a0a0a;
+    background-color: #000000;
     color: #00ff00;
   }
   
@@ -1396,7 +1459,7 @@ border-top: 1px solid rgba(0, 255, 0, 0.3);
   /* Certifications Section */
 .certifications-section {
     padding: 4rem 2rem;
-    background-color: #0a0a0a;
+    background-color: #000000;
   }
   
   .certifications-grid {

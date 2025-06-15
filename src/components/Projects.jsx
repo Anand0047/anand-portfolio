@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const Projects = () => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
   const projects = [
     {
       title: 'BringMyCart ( Ongoing )',
@@ -11,7 +9,7 @@ const Projects = () => {
     },
     {
       title: 'E-Commerce Website',
-      description: 'e-commerce for gaming accessories',
+      description: 'E-Commerce for gaming accessories',
       tech: 'Technology: HTML , CSS , Javascript',
       link:'https://anand-dev-strix-project.netlify.app/'
     },
@@ -35,7 +33,7 @@ const Projects = () => {
   const testimonials = [
     {
       text: 'HackerRank',
-      author: '5 in Java, 4 in Problem Solving',
+      author: '5 Star in Java, 2 Star in Problem Solving',
       icon: (
         <a 
           href="https://www.hackerrank.com/profile/anandram221003" 
@@ -49,37 +47,36 @@ const Projects = () => {
       )
     },
     {
-      text: 'Codechef',
-      author: '',
+      text: 'Leetcode',
+      author: '50+ Algorithms solved',
       icon: (
         <a 
-          href="https://www.hackerrank.com/profile/anandram221003" 
+          href="https://leetcode.com/u/_anand47_/" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="social-icon" 
           aria-label="Hackerrank"
         >
-          <i class="fa-solid fa-hat-chef"></i>
+          <i className="fa-solid fa-code"></i>
+        </a>
+      )
+    },
+    {
+      text: 'GeeksForGeeks',
+      author: '50+ Algorithms solved',
+      icon: (
+        <a 
+          href="https://www.geeksforgeeks.org/user/anand_ram47/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="social-icon" 
+          aria-label="Hackerrank"
+        >
+          <i className="fa-solid fa-code"></i>
         </a>
       )
     }
   ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial(prev => (prev - 1 + testimonials.length) % testimonials.length);
-  };
 
   return (
     <>
@@ -88,9 +85,9 @@ const Projects = () => {
         <div className="work-grid">
           {projects.map((project, index) => (
             <div key={index} className="work-item">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <p>{project.tech}</p>
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-description">{project.description}</p>
+              <p className="project-tech">{project.tech}</p>
               {project.link && (
                 <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
                   View Project
@@ -102,24 +99,17 @@ const Projects = () => {
       </section>
 
       <section id="testimonials">
-        <h2 className="section-title">Coding profile</h2>
-        <div className="testimonial-carousel">
+        <h2 className="section-title">Coding Profiles</h2>
+        <div className="coding-profiles-responsive">
           {testimonials.map((testimonial, index) => (
-            <div 
-              key={index} 
-              className={`testimonial ${index === currentTestimonial ? 'active' : ''}`}
-            >
-              <div className="testimonial-header">
+            <div key={index} className="coding-profile-card">
+              <div className="profile-header">
                 <p>{testimonial.text}</p>
-                {testimonial.icon && testimonial.icon}
+                {testimonial.icon}
               </div>
               <h4>{testimonial.author}</h4>
             </div>
           ))}
-          <div className="carousel-controls">
-            <button className="prev" onClick={prevTestimonial}>&lt;</button>
-            <button className="next" onClick={nextTestimonial}>&gt;</button>
-          </div>
         </div>
       </section>
     </>

@@ -5,7 +5,7 @@ const Contact = () => {
     <section id="contact">
       <h2 className="section-title">Contact Me</h2>
       <div className="contact-content">
-      <form 
+      {/* <form 
   action="https://formsubmit.co/your-email@example.com" 
   method="POST"
 >
@@ -15,7 +15,7 @@ const Contact = () => {
   <input type="hidden" name="_captcha" value="false" />
   <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html" />
   <button type="submit">Send Message</button>
-</form>
+</form> */}
         
         <div className="contact-info">
         <div className="social-links">
@@ -25,6 +25,9 @@ const Contact = () => {
             <a href="https://github.com/Anand0047" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub">
               <i className="fab fa-github"></i>
             </a>
+                    <a href="https://www.instagram.com/_anand47_/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Hackerrank">
+          <i className="fa-brands fa-instagram"></i>
+        </a>
             <a href="mailto:anandram221003@gmail.com" className="social-icon" aria-label="Email">
               <i className="fas fa-envelope"></i>
             </a>

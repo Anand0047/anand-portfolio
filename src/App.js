@@ -47,7 +47,7 @@ function App() {
 function HomeSection() {
   const downloadResume = async () => {
     window.open(
-      `https://drive.google.com/file/d/1wpEiqeJdSGMsoetd-Tib3bYnzXbYedUz/view?usp=sharing`,
+      `https://drive.google.com/file/d/1l9i7h9P1b8ECm-0IqsRGMSZcj5FnAct_/view?usp=sharing`,
       '_blank'
     );
   };
@@ -57,11 +57,11 @@ function HomeSection() {
     if (window.particlesJS) {
       window.particlesJS('particles-js', {
         particles: {
-          number: { value: 50, density: { enable: true, value_area: 800 } }, // Reduced particle count
+          number: { value: 60, density: { enable: true, value_area: 150 } }, // Reduced particle count
           color: { value: "#00fffc" },
           shape: { type: "circle" },
           opacity: { value: 0.5, random: false },
-          size: { value: 5, random: true }, // Smaller particles
+          size: { value: 3.5, random: true }, // Smaller particles
           line_linked: {
             enable: true,
             distance: 100, // Reduced link distance for smoother movement
@@ -71,7 +71,7 @@ function HomeSection() {
           },
           move: {
             enable: true,
-            speed: 1, // Slower speed for less intensive animation
+            speed: 3, // Slower speed for less intensive animation
             direction: "none",
             random: false,
             straight: false,
@@ -95,7 +95,6 @@ function HomeSection() {
       });
     }
 
-    // Initialize Typed.js with just "Software Developer"
     if (window.Typed) {
       new window.Typed('#typed', {
         strings: ["ㅤSoftware Developerㅤ", "ㅤJava Developerㅤ", "ㅤWeb Developerㅤ"],
@@ -150,11 +149,11 @@ function HomeSection() {
           </a>
         </div>
       </div>
-      <div className="cyber-circuits">
+      {/* <div className="cyber-circuits">
         <svg viewBox="0 0 500 150" preserveAspectRatio="none">
           <path d="M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z"></path>
         </svg>
-      </div>
+      </div> */}
       <div className="floating-icons">
         <i className="icon icon-code"></i>
         <i className="icon icon-database"></i>
@@ -167,12 +166,13 @@ function HomeSection() {
         <a href="https://github.com/Anand0047" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub">
           <i className="fab fa-github"></i>
         </a>
-        <a href="https://www.hackerrank.com/profile/anandram221003" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Hackerrank">
-          <i className="fa-brands fa-hackerrank"></i>
+        <a href="https://www.instagram.com/_anand47_/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Hackerrank">
+          <i className="fa-brands fa-instagram"></i>
         </a>
         <a href="mailto:anandram221003@gmail.com" className="social-icon" aria-label="Email">
           <i className="fas fa-envelope"></i>
         </a>
+        
       </div>
     </section>
   );

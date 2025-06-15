@@ -8,7 +8,7 @@ const Footer = () => {
           <h3>Anandh Raj R</h3>
           <p>Software Developer</p>
         </div>
-        <div className="footer-section">
+        {/* <div className="footer-section">
           <h3>Quick Links</h3>
           <div className="fles">
             <ul className="set-link">
@@ -22,7 +22,7 @@ const Footer = () => {
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
-        </div>
+        </div> */}
         <div className="footer-section">
           <h3>Connect</h3>
           <div className="contact-info">
@@ -33,6 +33,9 @@ const Footer = () => {
               <a href="https://github.com/Anand0047" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub">
                 <i className="fab fa-github"></i>
               </a>
+                      <a href="https://www.instagram.com/_anand47_/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Hackerrank">
+          <i className="fa-brands fa-instagram"></i>
+        </a>
               <a href="mailto:anandram221003@gmail.com" className="social-icon" aria-label="Email">
                 <i className="fas fa-envelope"></i>
               </a>
