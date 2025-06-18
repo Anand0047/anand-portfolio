@@ -20,6 +20,7 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
+  
 
   return (
     <div className="App">
@@ -172,8 +173,9 @@ function HomeSection() {
         <a href="mailto:anandram221003@gmail.com" className="social-icon" aria-label="Email">
           <i className="fas fa-envelope"></i>
         </a>
-        
+          
       </div>
+      <br /><br />
     </section>
   );
 }

@@ -30,7 +30,7 @@ const Certifications = () => {
       <div className="cert-container">
         <h2 className="section-title">Certifications</h2>
         
-        <div className="certifications-grid">
+        <div className="skills-grid">
           {certifications.map((cert, index) => (
             <div key={index} className="certification-card">
               <div className="certification-header">

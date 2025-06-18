@@ -80,36 +80,50 @@ const Projects = () => {
 
   return (
     <>
-      <section id="work">
-        <h2 className="section-title">My Work</h2>
-        <div className="work-grid">
-          {projects.map((project, index) => (
-            <div key={index} className="work-item">
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-description">{project.description}</p>
-              <p className="project-tech">{project.tech}</p>
-              {project.link && (
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
-                  View Project
-                </a>
-              )}
-            </div>
+      <section id="work" className="projects-section">
+        {/* Cyberpunk background elements */}
+        <div className="cyber-grid-projects">
+          {[...Array(8)].map((_, i) => (
+            <div key={i} className={`grid-line-proj ${i < 4 ? 'horizontal-proj' : 'vertical-proj'}`} />
           ))}
+        </div>
+        <div className="circuit-overlay"></div>
+        
+        <div className="projects-container">
+          <h2 className="section-title">My Work</h2>
+          <div className="work-grid">
+            {projects.map((project, index) => (
+              <div key={index} className="work-item">
+                <div className="project-content">
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                  <p className="project-tech">{project.tech}</p>
+                  {project.link && (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
+                      View Project
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="testimonials">
-        <h2 className="section-title">Coding Profiles</h2>
-        <div className="coding-profiles-responsive">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="coding-profile-card">
-              <div className="profile-header">
-                <p>{testimonial.text}</p>
-                {testimonial.icon}
+      <section id="testimonials" className="coding-profiles-section">
+        <div className="profiles-container">
+          <h2 className="section-title">Coding Profiles</h2>
+          <div className="coding-profiles-responsive">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="coding-profile-card">
+                <div className="profile-header">
+                  <p>{testimonial.text}</p>
+                  {testimonial.icon}
+                </div>
+                <h4>{testimonial.author}</h4>
               </div>
-              <h4>{testimonial.author}</h4>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
     </>

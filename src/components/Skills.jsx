@@ -27,8 +27,8 @@ const Skills = () => {
         
         <div className="skills-grid">
           {skillCategories.map((category, index) => (
-            <div key={index} className="skill-category">
-              <h3 className="category-title">{category.name}</h3>
+            <div key={index} className="certification-card">
+              <h3 className="certification-title">{category.name}</h3>
               <ul className="skill-list">
                 {category.items.map((skill, skillIndex) => (
                   <li key={skillIndex} className="skill-item">
