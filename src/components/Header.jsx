@@ -27,7 +27,7 @@ const Header = () => {
         <div className="logo">Anandh Raj</div>
         <ul className={`nav-menu ${isActive ? 'active' : ''}`}>
           <li><a href="#home" className="nav-link" onClick={closeMenu}>Home</a></li>
-          <li><a href="#about" className="nav-link" onClick={closeMenu}>About</a></li>
+          {/* <li><a href="#about" className="nav-link" onClick={closeMenu}>About</a></li> */}
           <li><a href="#skills" className="nav-link" onClick={closeMenu}>skills</a></li>
 
           <li><a href="#certifications" className="nav-link" onClick={closeMenu}>Certifications</a></li>
