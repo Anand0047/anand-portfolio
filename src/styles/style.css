@@ -1754,7 +1754,7 @@ border-top: 1px solid rgba(0, 255, 0, 0.3);
 
 .grid-line-proj {
   position: absolute;
-  background-color: rgba(255, 0, 252, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .grid-line-proj.horizontal-proj {
