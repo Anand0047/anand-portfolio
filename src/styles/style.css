@@ -7,6 +7,8 @@ body {
     overflow-x: hidden;
 }
 
+
+
 /*loadr */
 #loader-wrapper {
     position: fixed;
@@ -984,11 +986,13 @@ button:hover {
         font-size: 20px;
          letter-spacing: 1px;
         line-height: 1.1;
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 2rem;
-width: 100%;
-max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .work-item {
@@ -997,6 +1001,15 @@ border: 1px solid #00ff00;
 padding: 1.5rem;
 border-radius: 10px;
 transition: all 0.3s ease;
+flex: 1 1 calc(33.333% - 2rem); /* 3 per row with gap */
+  min-width: 280px;
+  max-width: 400px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #00ff00;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
 .work-item:hover {

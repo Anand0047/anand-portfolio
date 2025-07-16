@@ -3,16 +3,23 @@ import React from 'react';
 const Projects = () => {
   const projects = [
     {
-      title: 'BringMyCart ( Ongoing )',
+      title: 'BringMyCart (Ongoing)',
       description: 'Currently building a smart shopping assistant that integrates a browser extension and web application to help users track and manage products from Amazon in one place.',
       tech: 'Technology: Java, Spring Boot, Angular, JavaScript, HTML, CSS, MySQL'
     },
+    {
+  title: 'MediSense AI - Symptom to Action',
+  description: 'AI-powered health assistant that interprets user symptoms and provides possible causes, severity levels, and direct medicine or doctor suggestions, along with ePharmacy integration.',
+  tech: 'Technology: React.js, SpringBoot, Node.js, Express.js, OpenAI API, Tesseract.js, Leaflet.js',
+  link: 'https://github.com/anand0047/medisense-ai'
+},
     {
       title: 'E-Commerce Website',
       description: 'E-Commerce for gaming accessories',
       tech: 'Technology: HTML , CSS , Javascript',
       link:'https://anand-dev-strix-project.netlify.app/'
     },
+    
     {
       title: 'Portfolio Website',
       description: 'Created a personal portfolio website using React.js',
@@ -48,25 +55,10 @@ const Projects = () => {
     },
     {
       text: 'Leetcode',
-      author: '50+ Algorithms solved',
+      author: '100+ Algorithms solved',
       icon: (
         <a 
           href="https://leetcode.com/u/_anand47_/" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="social-icon" 
-          aria-label="Hackerrank"
-        >
-          <i className="fa-solid fa-code"></i>
-        </a>
-      )
-    },
-    {
-      text: 'GeeksForGeeks',
-      author: '50+ Algorithms solved',
-      icon: (
-        <a 
-          href="https://www.geeksforgeeks.org/user/anand_ram47/" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="social-icon" 
