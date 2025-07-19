@@ -66,7 +66,7 @@ function HomeSection() {
           size: { value: 3.5, random: true }, // Smaller particles
           line_linked: {
             enable: true,
-            distance: 100, // Reduced link distance for smoother movement
+            distance: 180, // Reduced link distance for smoother movement
             color: "#00fffc",
             opacity: 0.4,
             width: 1
@@ -110,6 +110,28 @@ function HomeSection() {
     }
   }, []);
 
+  useEffect(() => {
+  const glitch = document.getElementById("glitch");
+
+  const triggerGlitch = () => {
+    glitch.classList.add("animate");
+    setTimeout(() => {
+      glitch.classList.remove("animate");
+    }, 400); // duration of one glitch burst
+  };
+
+  triggerGlitch(); // initial trigger
+
+  const interval = setInterval(() => {
+    // skip if user is hovering (let hover take over)
+    if (!glitch.matches(':hover')) {
+      triggerGlitch();
+    }
+  }, 5000); // every 5s
+
+  return () => clearInterval(interval);
+}, []);
+
   return (
     <section id="home">
       <div className="cyber-grid">
@@ -123,7 +145,7 @@ function HomeSection() {
       <div id="particles-js"></div>
       <div className="content-wrapper">
         <div className="glitch-container">
-          <h1 className="glitch" data-text="Anandh Raj">Anandh Raj</h1>
+<h1 className="glitch" data-text="Anandh Raj" id="glitch">Anandh Raj</h1>
         </div>
         <div className="cyber-subtitle">
           <span className="bracket">[</span>

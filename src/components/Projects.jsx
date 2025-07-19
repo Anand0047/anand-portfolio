@@ -74,12 +74,7 @@ const Projects = () => {
     <>
       <section id="work" className="projects-section">
         {/* Cyberpunk background elements */}
-        <div className="cyber-grid-projects">
-          {[...Array(8)].map((_, i) => (
-            <div key={i} className={`grid-line-proj ${i < 4 ? 'horizontal-proj' : 'vertical-proj'}`} />
-          ))}
-        </div>
-        <div className="circuit-overlay"></div>
+
         
         <div className="projects-container">
           <h2 className="section-title">My Work</h2>

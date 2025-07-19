@@ -184,67 +184,280 @@ body {
     100% { clip: rect(89px, 9999px, 74px, 0); }
 }
 /* Header Section */
+/* Enhanced Cyberpunk Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #00fffc;
-}
-img.logo.logo-img {
-    width: 12px;
-}
-.nav-menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style-type: none
-}
-.nav-link.active {
-    color: #00fffc; /* Cyberpunk cyan color */
-    text-shadow: 0 0 5px #00fffc, 0 0 10px #00fffc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 255, 252, 0.2);
+  backdrop-filter: blur(5px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .navbar.scrolled {
-    background-color: rgba(10, 10, 10, 0.9); /* Dark background with some transparency */
-    box-shadow: 0 2px 10px rgba(0, 255, 252, 0.1); /* Cyan shadow for cyberpunk effect */
+  background-color: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 0 20px rgba(0, 255, 252, 0.3);
+  border-bottom: 1px solid rgba(0, 255, 252, 0.4);
 }
+
+/* Cyberpunk Logo */
+.cyberpunk-logo {
+  position: relative;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00fffc;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 0.5rem 1rem;
+  cursor: default;
+  overflow: hidden;
+  white-space: nowrap;
+  min-width: 150px; /* ✅ prevent F R issue */
+}
+
+
+.cyberpunk-logo-text {
+  position: relative;
+  z-index: 2;
+  text-shadow: 
+    0 0 5px #00fffc,
+    0 0 10px #00fffc,
+    0 0 20px #00fffc;
+  animation: text-flicker 3s linear infinite;
+}
+
+.cyberpunk-logo-glitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 49%, #00fffc 50%, transparent 51%);
+  background-size: 200% 100%;
+  animation: glitch-scan 5s linear infinite;
+  opacity: 0.7;
+  mix-blend-mode: overlay;
+}
+
+.cyberpunk-logo-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 255, 252, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 100% 4px;
+  animation: scanline 8s linear infinite;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  gap: 1.5rem;
+}
+
 .nav-link {
-    color: #00fffc;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
+  position: relative;
+  color: #00fffc;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 0.5rem 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.nav-link:hover {
-    color: #ff00fc;
+.link-text {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
-.hamburger {
-    display: none;
-    cursor: pointer;
+.link-hover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ff00fc;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+  z-index: 1;
 }
 
-.bar {
+.nav-link:hover .link-text {
+  color: #ff00fc;
+  text-shadow: 
+    0 0 5px #ff00fc,
+    0 0 10px #ff00fc;
+}
+
+.nav-link:hover .link-hover {
+  transform: scaleX(1);
+  transform-origin: left;
+  background: linear-gradient(90deg, #00fffc, #ff00fc);
+}
+
+/* Cyberpunk Hamburger Menu */
+.cyberpunk-hamburger {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 25px;
+  z-index: 1001;
+}
+
+.cyberpunk-bar {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #00fffc;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px #00fffc;
+}
+
+.cyberpunk-bar:nth-child(1) {
+  top: 0;
+}
+
+.cyberpunk-bar:nth-child(2),
+.cyberpunk-bar:nth-child(3) {
+  top: 10px;
+}
+
+.cyberpunk-bar:nth-child(4) {
+  top: 20px;
+}
+
+.cyberpunk-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 252, 0.1);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.cyberpunk-hamburger.active .cyberpunk-pulse {
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+.cyberpunk-hamburger.active .cyberpunk-bar:nth-child(1) {
+  top: 10px;
+  transform: rotate(135deg);
+  background: #ff00fc;
+  box-shadow: 0 0 5px #ff00fc;
+}
+
+.cyberpunk-hamburger.active .cyberpunk-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.cyberpunk-hamburger.active .cyberpunk-bar:nth-child(3) {
+  opacity: 0;
+}
+
+.cyberpunk-hamburger.active .cyberpunk-bar:nth-child(4) {
+  top: 10px;
+  transform: rotate(-135deg);
+  background: #ff00fc;
+  box-shadow: 0 0 5px #ff00fc;
+}
+
+/* Animations */
+@keyframes text-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes glitch-scan {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .cyberpunk-hamburger {
     display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: #00fffc;
+    margin-left: auto;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    height: calc(100vh - 70px);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    overflow-y: auto;
+    z-index: 999;
+    padding-top: 2rem;
+  }
+
+  .nav-menu.active {
+    transform: translateX(0%);
+  }
+
+  .nav-link {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 
@@ -319,15 +532,113 @@ section {
 }
 
 
-.glitch {
-    font-size: 5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    position: relative;
-    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
-                 0.025em 0.04em 0 #fffc00;
-    /* animation: glitch 725ms infinite; */
+.glitch-container {
+  position: relative;
+  display: inline-block;
+  min-height: 1em; /* Prevent layout shifts */
 }
+
+.glitch {
+  font-size: 5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  color: #10be5e;
+  text-shadow:
+    0 0 5px #00fffc,
+    0 0 10px #ff00fc,
+    0 0 20px #ff00fc;
+  animation: glitch-flicker 4s linear infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.glitch::before {
+  color: #00ffa6;
+  text-shadow: 
+    3px 0 #00ffa6, 
+    -3px 0 #ff00fc;
+  z-index: -1;
+  animation: glitch-effect-1 2.5s infinite alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.glitch::after {
+  color: #ff00fc;
+  text-shadow: 
+    -3px 0 #00ffa6, 
+    3px 0 #ff00fc;
+  z-index: -2;
+  animation: glitch-effect-2 2.5s infinite alternate;
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+}
+
+.glitch-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-shadow: 
+    0 0 2px #fff,
+    0 0 5px #fff,
+    0 0 10px #00ffa6;
+  z-index: -3;
+  animation: glitch-effect-3 3s infinite alternate;
+  opacity: 0.7;
+  mix-blend-mode: overlay;
+}
+
+@keyframes glitch-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow:
+      0 0 5px #00fffc,
+      0 0 10px #ff00fc,
+      0 0 20px #ff00fc;
+  }
+  20%, 24%, 55% {
+    text-shadow:
+      0 0 10px #00fffc,
+      0 0 15px #ff00fc,
+      0 0 25px #ff00fc,
+      0 0 40px #ff00fc;
+    color: #1eb988;
+  }
+}
+/* Scanlines */
+.glitch-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* width: 100%; */
+  /* height: 100%; */
+  background: 
+    linear-gradient(
+      rgba(0, 255, 200, 0.1) 0.1em,
+      transparent 0.1em
+    );
+  background-size: 100% 0.2em;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+
 
 .cyber-subtitle {
     font-size: 1.5rem;
@@ -545,277 +856,549 @@ section {
 }
 
 /* About Section */
-.section-title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-shadow: 0 0 10px #00ff00;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+
+/* Cyberpunk About Section */
+.cyberpunk-about-section {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 3rem 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  overflow: hidden;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+  z-index: 1;
 }
 
-
-.about-content, .contact-content {
-      font-family: 'Syncopate', sans-serif;
-        font-size: 25px;
-         letter-spacing: 1px;
-        line-height: 1.1;
-    max-width: 1100px;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
-}
- /* Education Section */
- /* #education {
-    background-color: #0a0a0a;
-    padding: 4rem 0;
+.cyberpunk-about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, 
+    rgba(0, 255, 252, 0.3) 0%, 
+    rgba(255, 0, 252, 0.3) 100%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-.education-timeline {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 0;
+.cyberpunk-about-section:hover::before {
+  opacity: 1;
 }
 
-.education-timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background: #00fffc;
-    box-shadow: 0 0 10px #00fffc;
+.cyberpunk-about-section::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    #00fffc 0%, 
+    #ff00fc 50%, 
+    #00fffc 100%);
+  background-size: 200% 200%;
+  z-index: -2;
+  animation: gradient-shift 6s ease infinite;
+  opacity: 0.3;
 }
 
-.timeline-item {
-    position: relative;
-    margin-bottom: 4rem;
+/* Grid Overlay */
+.cyberpunk-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 255, 252, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 252, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: -1;
+  opacity: 0.5;
 }
 
-.timeline-item:nth-child(even) {
-    margin-left: 50%;
-    padding-left: 2rem;
+/* Title Styles */
+.cyberpunk-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #00fffc;
+  text-shadow: 
+    0 0 5px #00fffc,
+    0 0 10px #00fffc,
+    0 0 20px #00fffc;
+  position: relative;
+  display: inline-block;
+  padding: 0 1rem;
 }
 
-.timeline-item:nth-child(odd) {
-    margin-right: 50%;
-    padding-right: 2rem;
-    text-align: right;
+.cyberpunk-title::before,
+.cyberpunk-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
 }
 
-.timeline-icon {
-    position: absolute;
-    top: 0;
-    width: 40px;
-    height: 40px;
-    background: #00fffc;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 10px #00fffc;
+.cyberpunk-title::before {
+  color: #00fffc;
+  z-index: -1;
+  animation: glitch-effect 3s infinite linear alternate-reverse;
 }
 
-.timeline-item:nth-child(even) .timeline-icon {
-    left: -20px;
+.cyberpunk-title::after {
+  color: #ff00fc;
+  z-index: -2;
+  animation: glitch-effect 2s infinite linear alternate-reverse;
 }
 
-.timeline-item:nth-child(odd) .timeline-icon {
-    right: -20px;
+/* Content Styles */
+.cyberpunk-content {
+  position: relative;
+  z-index: 2;
 }
 
-.timeline-content {
-    background: rgba(0, 255, 252, 0.1);
-    padding: 1.5rem;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 255, 252, 0.3);
+.cyberpunk-text {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #00fffc;
+  text-shadow: 0 0 5px rgba(0, 255, 252, 0.3);
+  position: relative;
 }
 
-.timeline-content h3 {
-    color: #00fffc;
-    margin-bottom: 0.5rem;
+.neon-pink {
+  color: #ff00fc;
+  text-shadow: 
+    0 0 5px #ff00fc,
+    0 0 10px rgba(255, 0, 252, 0.5);
+  font-weight: bold;
 }
 
-.timeline-date {
-    display: inline-block;
-    padding: 0.25rem 0.5rem;
-    background: #ff00fc;
-    color: #0a0a0a;
-    font-size: 0.8rem;
-    border-radius: 3px;
-    margin-top: 0.5rem;
-} */
-  /* Experience Section */
-  #experience {
-    background-color: #000000;
-    padding: 4rem 0;
+.highlight {
+  position: relative;
+  display: inline-block;
 }
 
-.timeline {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 0;
+.highlight::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #00fffc, #ff00fc);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
 }
 
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(to bottom, #00fffc, #ff00fc);
-    box-shadow: 0 0 10px rgba(0, 255, 252, 0.5);
+.highlight:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-.timeline-item {
-    padding: 2rem 0;
-    position: relative;
-    width: 50%;
-    clear: both;
+/* Corner Brackets */
+.cyberpunk-corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #00fffc;
+  z-index: 3;
 }
 
-.timeline-item:nth-child(odd) {
-    float: left;
-    padding-right: 2rem;
-    text-align: right;
+.cyberpunk-corner-tl {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
 }
 
-.timeline-item:nth-child(even) {
-    float: right;
-    padding-left: 2rem;
-    text-align: left;
+.cyberpunk-corner-tr {
+  top: 10px;
+  right: 10px;
+  border-left: none;
+  border-bottom: none;
 }
 
-.timeline-icon {
-    position: absolute;
-    top: 1rem;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #000000;
-    border: 2px solid #00fffc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #00fffc;
-    font-size: 1.5rem;
-    z-index: 1;
-    box-shadow: 0 0 10px rgba(0, 255, 252, 0.5);
+.cyberpunk-corner-bl {
+  bottom: 10px;
+  left: 10px;
+  border-right: none;
+  border-top: none;
 }
 
-.timeline-item:nth-child(odd) .timeline-icon {
-    right: -10px;
+.cyberpunk-corner-br {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
 }
 
-.timeline-item:nth-child(even) .timeline-icon {
-    left: -10px;
+/* Animations */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.timeline-content {
-    padding: 1.5rem;
-    background-color: rgba(0, 255, 252, 0.1);
-    border: 1px solid #00fffc;
-    border-radius: 5px;
-    box-shadow: 0 0 15px rgba(0, 255, 252, 0.2);
-    transition: all 0.3s ease;
+@keyframes glitch-effect {
+  0% {
+    transform: translate(0);
+    clip-path: inset(0 0 0 0);
+  }
+  20% {
+    transform: translate(-5px, 5px);
+    clip-path: inset(10% 0 30% 0);
+  }
+  40% {
+    transform: translate(5px, -5px);
+    clip-path: inset(30% 0 10% 0);
+  }
+  60% {
+    transform: translate(-5px, 5px) skew(10deg);
+    clip-path: inset(15% 0 70% 0);
+  }
+  80% {
+    transform: translate(5px, -5px) skew(-20deg);
+    clip-path: inset(20% 0 50% 0);
+  }
+  100% {
+    transform: translate(0) skew(0);
+    clip-path: inset(0 0 0 0);
+  }
 }
 
-.timeline-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 255, 252, 0.4);
-}
-
-.timeline-content h3 {
-    color: #00fffc;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-content h4 {
-    color: #ff00fc;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-date {
-    font-size: 0.9rem;
-    color: #00fffc;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cyberpunk-about-section {
+    padding: 2rem 1rem;
+    width: 95%;
+  }
+  
+  .cyberpunk-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cyberpunk-text {
+    font-size: 1rem;
     margin-bottom: 1rem;
+  }
+  
+  .cyberpunk-corner {
+    width: 20px;
+    height: 20px;
+  }
 }
 
-/* Add a glitch effect to the timeline items */
-@keyframes glitch {
-    0% {
-        clip-path: inset(0 0 0 0);
-    }
-    2%, 4%, 6% {
-        clip-path: inset(30% 0 0 0);
-        transform: translate(-5px, -5px);
-    }
-    8%, 10%, 12% {
-        clip-path: inset(0 30% 0 0);
-        transform: translate(5px, 5px);
-    }
-    14%, 16%, 18% {
-        clip-path: inset(0 0 30% 0);
-        transform: translate(5px, -5px);
-    }
-    20%, 22%, 24% {
-        clip-path: inset(0 0 0 30%);
-        transform: translate(-5px, 5px);
-    }
-    26% {
-        clip-path: inset(0 0 0 0);
-        transform: translate(0);
-    }
+@media (max-width: 480px) {
+  .cyberpunk-about-section {
+    padding: 1.5rem 1rem;
+    width: 98%;
+  }
+  
+  .cyberpunk-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cyberpunk-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
 }
 
-.timeline-content:hover::before {
-    content: attr(data-text);
-    position: absolute;
-    left: -2px;
-    top: -2px;
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    background: rgba(0, 255, 252, 0.2);
-    animation: glitch 2s infinite linear alternate-reverse;
+  /* Experience Section */
+ /* Cyberpunk Timeline Section */
+.cyberpunk-timeline-section {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 4rem 2rem;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
 }
 
-/* Responsive design */
-@media screen and (max-width: 768px) {
-    .timeline::before {
-        left: 20px;
-    }
-    .timeline {
-       
-        left: 20px;
-    }
-    .timeline-item {
-        width: 80%;
-        padding-left: 30px;
-        padding-right: 0;
-        text-align: left;
-    }
-    .timeline-icon {
-        top: 1rem;
-    }
-    .timeline-item:nth-child(odd) {
-        float: none;
-        padding-right: 0;
-        text-align: left;
-    }
-    
-    .timeline-item:nth-child(even) {
-        float: none;
-    }
-    
-    .timeline-icon {
-        left: -5px !important;
-    }
+.cyberpunk-section-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #00fffc;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+  text-shadow: 
+    0 0 5px #00fffc,
+    0 0 10px #00fffc,
+    0 0 20px #00fffc;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch-text::before {
+  color: #00fffc;
+  z-index: -1;
+  animation: glitch-effect 3s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  color: #ff00fc;
+  z-index: -2;
+  animation: glitch-effect 2s infinite linear alternate-reverse;
+}
+
+/* Timeline Container */
+.cyberpunk-timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.cyberpunk-timeline-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(0, 255, 252, 0.8), 
+    rgba(255, 0, 252, 0.8));
+  box-shadow: 
+    0 0 10px rgba(0, 255, 252, 0.5),
+    0 0 20px rgba(255, 0, 252, 0.5);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Timeline Items */
+.cyberpunk-timeline-item {
+  padding: 2rem 0;
+  position: relative;
+  width: 50%;
+  clear: both;
+}
+
+.cyberpunk-timeline-item.left {
+  float: left;
+  padding-right: 4rem;
+  text-align: right;
+}
+
+.cyberpunk-timeline-item.right {
+  float: right;
+  padding-left: 4rem;
+  text-align: left;
+}
+
+/* Timeline Content */
+.cyberpunk-timeline-content {
+  position: relative;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 255, 252, 0.3);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 255, 252, 0.1);
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.cyberpunk-timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 5px 20px rgba(0, 255, 252, 0.4),
+    0 0 0 1px rgba(255, 0, 252, 0.3);
+  border: 1px solid rgba(255, 0, 252, 0.5);
+}
+
+.cyberpunk-timeline-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 255, 252, 0.1) 0%,
+    rgba(255, 0, 252, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.cyberpunk-timeline-content:hover .cyberpunk-timeline-glow {
+  opacity: 1;
+}
+
+/* Timeline Text */
+.cyberpunk-timeline-title {
+  color: #00fffc;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px rgba(0, 255, 252, 0.5);
+}
+
+.cyberpunk-timeline-subtitle {
+  color: #ff00fc;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px rgba(255, 0, 252, 0.5);
+}
+
+.cyberpunk-timeline-date {
+  color: #00fffc;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.cyberpunk-timeline-description {
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Timeline Icon */
+.cyberpunk-timeline-icon {
+  position: absolute;
+  top: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 2px solid #00fffc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #00fffc;
+  font-size: 1.5rem;
+  z-index: 2;
+  box-shadow: 
+    0 0 10px rgba(0, 255, 252, 0.5),
+    0 0 20px rgba(0, 255, 252, 0.2);
+  transition: all 0.4s ease;
+}
+
+.cyberpunk-timeline-item.left .cyberpunk-timeline-icon {
+  right: -30px;
+}
+
+.cyberpunk-timeline-item.right .cyberpunk-timeline-icon {
+  left: -30px;
+}
+
+.cyberpunk-timeline-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 0 15px rgba(0, 255, 252, 0.8),
+    0 0 30px rgba(0, 255, 252, 0.3);
+  color: #ff00fc;
+  border-color: #ff00fc;
+}
+
+.cyberpunk-icon-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 255, 252, 0.4) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.cyberpunk-timeline-icon:hover .cyberpunk-icon-glow {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cyberpunk-timeline-line {
+    left: 30px;
+  }
+  
+  .cyberpunk-timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 0;
+    text-align: left;
+  }
+  
+  .cyberpunk-timeline-item.left,
+  .cyberpunk-timeline-item.right {
+    float: none;
+    padding-right: 0;
+    text-align: left;
+  }
+  
+  .cyberpunk-timeline-icon {
+    left: 0 !important;
+    right: auto;
+    top: 2rem;
+  }
+}
+
+/* Animations */
+@keyframes glitch-effect {
+  0% {
+    transform: translate(0);
+    clip-path: inset(0 0 0 0);
+  }
+  20% {
+    transform: translate(-5px, 5px);
+    clip-path: inset(10% 0 30% 0);
+  }
+  40% {
+    transform: translate(5px, -5px);
+    clip-path: inset(30% 0 10% 0);
+  }
+  60% {
+    transform: translate(-5px, 5px) skew(10deg);
+    clip-path: inset(15% 0 70% 0);
+  }
+  80% {
+    transform: translate(5px, -5px) skew(-20deg);
+    clip-path: inset(20% 0 50% 0);
+  }
+  100% {
+    transform: translate(0) skew(0);
+    clip-path: inset(0 0 0 0);
+  }
 }
 /* Resume Section */
 #resume {
@@ -1985,7 +2568,7 @@ border-top: 1px solid rgba(0, 255, 0, 0.3);
 
 
 #about {
-  background-color: #000000;
+  /* background-color: #000000;
   color: #f5f5f5;
   padding: 3rem;
   margin: 2rem auto;
@@ -1993,9 +2576,9 @@ border-top: 1px solid rgba(0, 255, 0, 0.3);
   border-radius: 12px;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-  max-width: 900px;
+  max-width: ;
   position: relative;
-  z-index: 1;
+  z-index: 1; */
 }
 
 #about:hover {
