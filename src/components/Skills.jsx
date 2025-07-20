@@ -22,6 +22,41 @@ const Skills = () => {
 
   return (
     <section id="skills" className="cyberpunk-skills-section">
+      <style>
+{`
+  .cyberpunk-skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  @media (min-width: 600px) {
+    .cyberpunk-skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 900px) {
+    .cyberpunk-skills-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .cyberpunk-skill-category {
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .cyberpunk-skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
+  }
+`}
+</style>
+
       <div className="cyberpunk-grid-overlay"></div>
       <div className="circuit-overlay"></div>
       

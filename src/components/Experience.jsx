@@ -39,6 +39,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="cp-tl-section-main">
+      
       <div className="cp-tl-grid-overlay"></div>
       <div className="cp-tl-circuit-overlay"></div>
       
@@ -64,6 +65,7 @@ const Experience = () => {
         ))}
         <div className="cp-tl-center-line"></div>
       </div>
+      
     </section>
   );
 };

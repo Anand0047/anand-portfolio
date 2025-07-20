@@ -127,6 +127,64 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <style>
+{`
+  /* Prevents horizontal scroll on small screens */
+  .cp-contact-section {
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+  }
+
+  .cp-contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .cp-contact-form {
+    width: 100%;
+    max-width: 650px; /* KEEPING your original size */
+    box-sizing: border-box;
+  }
+
+  .cp-contact-info {
+    width: 100%;
+    max-width: 650px;
+    box-sizing: border-box;
+  }
+
+  /* Responsive layout: stack on smaller screens */
+  @media (min-width: 992px) {
+    .cp-contact-container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .cp-contact-form,
+    .cp-contact-info {
+      width: 48%;
+    }
+  }
+
+  /* Ensure inputs scale and wrap inside their container */
+  .cp-contact-input,
+  .cp-contact-textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .cp-contact-submit {
+    width: 100%;
+    box-sizing: border-box;
+  }
+`}
+</style>
+
     </section>
   );
 };

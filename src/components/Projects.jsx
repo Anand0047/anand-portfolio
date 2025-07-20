@@ -207,6 +207,150 @@ const Projects = () => {
             </div>
           ))}
         </div>
+        <style>
+{`
+  /* Grid for Projects Section */
+  .cyberpunk-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  @media (min-width: 600px) {
+    .cyberpunk-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .cyberpunk-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .cyber-card {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1.2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    word-wrap: break-word;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .tech-tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    color: #fff;
+  }
+
+  .simple-cyber-button {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border: 1px solid cyan;
+    color: cyan;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  /* Coding Profiles Section */
+  .profile-cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .profile-cards-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .profile-card {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .profile-icon i {
+    font-size: 1.4rem;
+    color: cyan;
+  }
+
+  .achievement {
+    margin-top: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  .details {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .progress-bars {
+    margin-top: 1rem;
+  }
+
+  .progress-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: cyan;
+    border-radius: 4px;
+  }
+
+  .profile-link-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.4rem 1rem;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid cyan;
+    color: cyan;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  /* Prevent overflow on mobile */
+  .cyberpunk-container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+`}
+</style>
+
       </section>
     </div>
         </div>
