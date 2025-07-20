@@ -8,43 +8,53 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Certifications from './components/Certifications';
+import './styles/cyberpunk-transitions.css';
+import InternshipExperience from './components/InternshipExperience';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [transitionActive, setTransitionActive] = useState(false);
+  const [contentVisible, setContentVisible] = useState(false);
 
   useEffect(() => {
-    // Shorten the loading time
     const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500); // Reduced from 3000ms to 1500ms
+      setTransitionActive(true);
+      setTimeout(() => {
+        setIsLoading(false);
+        setContentVisible(true); // This triggers the fade-in
+      }, 1000); // Glitch transition time
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
-  
 
-  return (
+return (
     <div className="App">
       {isLoading ? (
-        <Loader />
+        <div className={`cyberpunk-loader-container ${transitionActive ? 'glitch-out' : ''}`}>
+          <Loader />
+        </div>
       ) : (
-        <>
+        <div className={`cyberpunk-content-container ${contentVisible ? 'fade-in' : ''}`}>
           <Header />
           <main>
             <HomeSection />
             <Projects />
             <About />
             <Skills />
+            <InternshipExperience/>
             <Certifications />
             <Experience />
-            
             <Contact />
           </main>
           <Footer />
-        </>
+        </div>
       )}
     </div>
   );
 }
+
+
 
 function HomeSection() {
   const downloadResume = async () => {
@@ -59,7 +69,7 @@ function HomeSection() {
     if (window.particlesJS) {
       window.particlesJS('particles-js', {
         particles: {
-          number: { value: 60, density: { enable: true, value_area: 150 } }, // Reduced particle count
+          number: { value: 60, density: { enable: true, value_area: 120 } }, // Reduced particle count
           color: { value: "#00fffc" },
           shape: { type: "circle" },
           opacity: { value: 0.5, random: false },

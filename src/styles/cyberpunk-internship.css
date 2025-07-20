@@ -1,0 +1,274 @@
+/* Unique Cyberpunk Internship Styles */
+.cp-intern-section {
+  position: relative;
+  padding: 5rem 2rem;
+  background-color: #030305;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cp-intern-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.cp-intern-section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  color: #00ffff;
+}
+
+.cp-intern-glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.cp-intern-glitch::before,
+.cp-intern-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a12;
+}
+
+.cp-intern-glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00ff;
+  animation: cp-intern-glitch-anim-1 2.5s infinite linear alternate-reverse;
+}
+
+.cp-intern-glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #00ffff;
+  animation: cp-intern-glitch-anim-2 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes cp-intern-glitch-anim-1 {
+  0% { clip-path: polygon(0 20%, 100% 20%, 100% 30%, 0 30%); }
+  20% { clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%); }
+  40% { clip-path: polygon(0 40%, 100% 40%, 100% 50%, 0 50%); }
+  60% { clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%); }
+  80% { clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%); }
+  100% { clip-path: polygon(0 80%, 100% 80%, 100% 90%, 0 90%); }
+}
+
+@keyframes cp-intern-glitch-anim-2 {
+  0% { clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%); }
+  20% { clip-path: polygon(0 50%, 100% 50%, 100% 60%, 0 60%); }
+  40% { clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%); }
+  60% { clip-path: polygon(0 80%, 100% 80%, 100% 90%, 0 90%); }
+  80% { clip-path: polygon(0 20%, 100% 20%, 100% 30%, 0 30%); }
+  100% { clip-path: polygon(0 90%, 100% 90%, 100% 100%, 0 100%); }
+}
+
+.cp-intern-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cp-intern-card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: rgba(20, 20, 40, 0.7);
+  backdrop-filter: blur(5px);
+  border: 1px solid;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cp-intern-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+}
+
+.cp-intern-header {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.cp-intern-company {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.cp-intern-role-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border-radius: 0.2rem;
+  background-color: rgba(0, 255, 255, 0.2);
+}
+
+.cp-intern-content {
+  position: relative;
+}
+
+.cp-intern-duration {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.cp-intern-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.cp-intern-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cp-intern-tech-tag {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border-radius: 0.2rem;
+  background-color: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cp-intern-card:hover .cp-intern-tech-tag {
+  background-color: rgba(0, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.cp-intern-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.cp-intern-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: currentColor;
+  border-style: solid;
+  border-width: 0;
+  transition: all 0.3s ease;
+}
+
+.cp-intern-corner-tl {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.cp-intern-corner-tr {
+  top: -1px;
+  right: -1px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.cp-intern-corner-bl {
+  bottom: -1px;
+  left: -1px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.cp-intern-corner-br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+.cp-intern-card:hover .cp-intern-corner {
+  width: 30px;
+  height: 30px;
+}
+
+/* Neon Color Variations */
+.cp-intern-neon-blue {
+  border-color: #00ffff;
+  color: #00ffff;
+}
+
+.cp-intern-neon-blue .cp-intern-glow {
+  background-color: #00ffff;
+  box-shadow: 0 0 30px #00ffff;
+}
+
+.cp-intern-neon-blue .cp-intern-role-badge {
+  color: #00ffff;
+  border: 1px solid #00ffff;
+}
+
+.cp-intern-neon-pink {
+  border-color: #ff00ff;
+  color: #ff00ff;
+}
+
+.cp-intern-neon-pink .cp-intern-glow {
+  background-color: #ff00ff;
+  box-shadow: 0 0 30px #ff00ff;
+}
+
+.cp-intern-neon-pink .cp-intern-role-badge {
+  color: #ff00ff;
+  border: 1px solid #ff00ff;
+}
+
+.cp-intern-neon-purple {
+  border-color: #aa00ff;
+  color: #aa00ff;
+}
+
+.cp-intern-neon-purple .cp-intern-glow {
+  background-color: #aa00ff;
+  box-shadow: 0 0 30px #aa00ff;
+}
+
+.cp-intern-neon-purple .cp-intern-role-badge {
+  color: #aa00ff;
+  border: 1px solid #aa00ff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cp-intern-section-title {
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+  }
+  
+  .cp-intern-container {
+    grid-template-columns: 1fr;
+  }
+}

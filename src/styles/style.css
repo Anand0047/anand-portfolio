@@ -7,7 +7,39 @@ body {
     overflow-x: hidden;
 }
 
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
+.cyberpunk-content-container {
+  opacity: 0;
+}
+
+.cyberpunk-content-container.fade-in {
+  animation: fadeIn 1s ease-in forwards;
+}
+
+/* Existing loader styles */
+.cyberpunk-loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  z-index: 1000;
+  transition: opacity 1s ease;
+}
+
+.cyberpunk-loader-container.glitch-out {
+  opacity: 0;
+  pointer-events: none;
+}
 
 /*loadr */
 #loader-wrapper {
@@ -422,7 +454,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1400px) {
   .navbar {
     flex-wrap: wrap;
     padding: 0.8rem 1.5rem;
@@ -2081,25 +2113,165 @@ border-top: 1px solid rgba(0, 255, 0, 0.3);
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
   }
-  
-  .certification-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, 
-      transparent 0%, 
-      rgba(0, 255, 252, 0.1) 50%, 
-      transparent 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  /* Cyberpunk Skills Section */
+.cyberpunk-skills-section {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 4rem 2rem;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Skills Grid */
+.cyberpunk-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Skill Category */
+.cyberpunk-skill-category {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 255, 252, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.cyberpunk-category-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 255, 252, 0.1) 0%,
+    rgba(255, 0, 252, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.cyberpunk-skill-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 5px 20px rgba(0, 255, 252, 0.4),
+    0 0 0 1px rgba(255, 0, 252, 0.3);
+  border: 1px solid rgba(255, 0, 252, 0.5);
+}
+
+.cyberpunk-skill-category:hover .cyberpunk-category-glow {
+  opacity: 1;
+}
+
+/* Category Title */
+.cyberpunk-category-title {
+  color: #00fffc;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 255, 252, 0.3);
+  text-shadow: 0 0 5px rgba(0, 255, 252, 0.5);
+  position: relative;
+}
+
+.cyberpunk-category-title::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #00fffc, #ff00fc);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.cyberpunk-skill-category:hover .cyberpunk-category-title::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Skill List */
+.cyberpunk-skill-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cyberpunk-skill-item {
+  position: relative;
+  padding: 0.5rem 0;
+  padding-left: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #00fffc;
+  transition: all 0.3s ease;
+}
+
+.cyberpunk-skill-bullet {
+  position: absolute;
+  left: 0;
+  color: #ff00fc;
+  text-shadow: 0 0 5px rgba(255, 0, 252, 0.5);
+}
+
+.cyberpunk-skill-text {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.cyberpunk-skill-glow {
+  position: absolute;
+  bottom: 0;
+  left: 1.8rem;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #ff00fc, #00fffc);
+  transition: all 0.3s ease;
+}
+
+.cyberpunk-skill-item:hover .cyberpunk-skill-text {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 255, 252, 0.8);
+}
+
+.cyberpunk-skill-item:hover .cyberpunk-skill-glow {
+  width: calc(100% - 1.8rem);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cyberpunk-skills-grid {
+    grid-template-columns: 1fr;
   }
   
-  .certification-card:hover::before {
-    opacity: 1;
+  .cyberpunk-skill-category {
+    padding: 1.2rem;
   }
+  
+  .cyberpunk-category-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cyberpunk-skills-section {
+    padding: 3rem 1rem;
+  }
+  
+  .cyberpunk-section-title {
+    font-size: 2rem;
+  }
+}
   
   .certification-header {
     display: flex;
@@ -2187,6 +2359,225 @@ border-top: 1px solid rgba(0, 255, 0, 0.3);
   }
   
   /* Cyberpunk Certifications Background */
+  /* Cyberpunk Certifications Section */
+.cyberpunk-certifications-section {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 4rem 2rem;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Certifications Grid */
+.cyberpunk-certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Certification Card */
+.cyberpunk-certification-card {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 255, 252, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+}
+
+.cyberpunk-certification-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 255, 252, 0.1) 0%,
+    rgba(255, 0, 252, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.cyberpunk-certification-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 10px 30px rgba(0, 255, 252, 0.3),
+    0 0 0 1px rgba(255, 0, 252, 0.3);
+  border: 1px solid rgba(255, 0, 252, 0.5);
+}
+
+.cyberpunk-certification-card:hover .cyberpunk-certification-glow {
+  opacity: 1;
+}
+
+/* Certification Header */
+.cyberpunk-certification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.cyberpunk-certification-title {
+  color: #00fffc;
+  font-size: 1.3rem;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.cyberpunk-certification-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #00fffc, #ff00fc);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.cyberpunk-certification-card:hover .cyberpunk-certification-title::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.cyberpunk-certification-date {
+  color: #ff00fc;
+  font-size: 0.9rem;
+  text-shadow: 0 0 5px rgba(255, 0, 252, 0.5);
+}
+
+/* Certification Issuer */
+.cyberpunk-certification-issuer {
+  color: #00fffc;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px rgba(0, 255, 252, 0.3);
+}
+
+/* Skill Tags */
+.cyberpunk-certification-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.cyberpunk-skill-tag {
+  background-color: rgba(0, 255, 252, 0.1);
+  color: #00fffc;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cyberpunk-skill-tag-text {
+  position: relative;
+  z-index: 2;
+}
+
+.cyberpunk-skill-tag-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(0, 255, 252, 0.4) 50%, 
+    transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.cyberpunk-certification-card:hover .cyberpunk-skill-tag {
+  background-color: rgba(0, 255, 252, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 252, 0.3);
+}
+
+.cyberpunk-certification-card:hover .cyberpunk-skill-tag-glow {
+  transform: translateX(100%);
+}
+
+/* Shine Animation */
+.cyberpunk-certification-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 255, 252, 0) 0%,
+    rgba(0, 255, 252, 0) 30%,
+    rgba(0, 255, 252, 0.1) 45%,
+    rgba(0, 255, 252, 0) 60%,
+    rgba(0, 255, 252, 0) 100%
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+.cyberpunk-certification-card:hover::before {
+  opacity: 1;
+  animation: shine 1.5s ease forwards;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+    top: -100%;
+  }
+  20% {
+    left: 100%;
+    top: 100%;
+  }
+  100% {
+    left: 100%;
+    top: 100%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cyberpunk-certifications-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cyberpunk-certification-card {
+    padding: 1.2rem;
+  }
+  
+  .cyberpunk-certification-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cyberpunk-certifications-section {
+    padding: 3rem 1rem;
+  }
+  
+  .cyberpunk-section-title {
+    font-size: 2rem;
+  }
+}
 .cyber-grid-cert {
   position: absolute;
   top: 0;
@@ -2515,7 +2906,7 @@ border-top: 1px solid rgba(0, 255, 0, 0.3);
 .coding-profiles-section {
   position: relative;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.5); */
 }
 
 .coding-profile-card {

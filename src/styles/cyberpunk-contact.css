@@ -1,0 +1,336 @@
+/* Cyberpunk Contact Terminal Styles */
+.cp-contact-section {
+  position: relative;
+  padding: 5rem 2rem;
+  background-color: #000000;
+  overflow: hidden;
+  isolation: isolate;
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.cp-contact-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.cp-contact-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+  background-size: 100% 8px;
+  animation: cp-scanline 8s linear infinite;
+  z-index: -1;
+}
+
+@keyframes cp-scanline {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+
+.cp-contact-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  color: #00ffff;
+}
+
+.cp-contact-glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.cp-contact-glitch::before,
+.cp-contact-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a12;
+}
+
+.cp-contact-glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00ff;
+  animation: cp-glitch-anim-1 2.5s infinite linear alternate-reverse;
+}
+
+.cp-contact-glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #00ffff;
+  animation: cp-glitch-anim-2 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes cp-glitch-anim-1 {
+  0% { clip-path: polygon(0 20%, 100% 20%, 100% 30%, 0 30%); }
+  20% { clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%); }
+  40% { clip-path: polygon(0 40%, 100% 40%, 100% 50%, 0 50%); }
+  60% { clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%); }
+  80% { clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%); }
+  100% { clip-path: polygon(0 80%, 100% 80%, 100% 90%, 0 90%); }
+}
+
+@keyframes cp-glitch-anim-2 {
+  0% { clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%); }
+  20% { clip-path: polygon(0 50%, 100% 50%, 100% 60%, 0 60%); }
+  40% { clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%); }
+  60% { clip-path: polygon(0 80%, 100% 80%, 100% 90%, 0 90%); }
+  80% { clip-path: polygon(0 20%, 100% 20%, 100% 30%, 0 30%); }
+  100% { clip-path: polygon(0 90%, 100% 90%, 100% 100%, 0 100%); }
+}
+
+.cp-contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cp-contact-form {
+  position: relative;
+  padding: 2rem;
+  background: rgba(20, 20, 40, 0.7);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.cp-input-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.cp-contact-input,
+.cp-contact-textarea {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(10, 15, 30, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: #00ffff;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.cp-contact-input::placeholder,
+.cp-contact-textarea::placeholder {
+  color: rgba(0, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.cp-contact-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.cp-input-highlight {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff00ff;
+  transition: width 0.3s ease;
+}
+
+.cp-contact-input:focus + .cp-input-highlight,
+.cp-contact-textarea:focus + .cp-input-highlight {
+  width: 100%;
+}
+
+.cp-contact-submit {
+  position: relative;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 20, 0.8);
+  color: #00ffff;
+  border: 1px solid #00ffff;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cp-contact-submit:hover {
+  background: rgba(0, 20, 40, 0.8);
+  text-shadow: 0 0 5px #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.cp-button-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.3),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.cp-contact-submit:hover .cp-button-glow {
+  transform: translateX(100%);
+}
+
+.cp-button-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #00ffff;
+  opacity: 0.5;
+}
+
+.cp-contact-info {
+  padding: 2rem;
+  background: rgba(20, 20, 40, 0.7);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 0, 255, 0.3);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.1);
+}
+
+.cp-comms-title {
+  color: #ff00ff;
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.cp-social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.cp-social-link {
+  position: relative;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-align: center;
+}
+
+.cp-social-link i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cp-social-link span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.cp-social-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.cp-social-link:hover .cp-social-glow {
+  opacity: 0.5;
+}
+
+.cp-social-linkedin {
+  border-color: #0077b5;
+  color: #0077b5;
+}
+
+.cp-social-linkedin .cp-social-glow {
+  background-color: #0077b5;
+  box-shadow: 0 0 20px #0077b5;
+}
+
+.cp-social-github {
+  border-color: #6cc644;
+  color: #6cc644;
+}
+
+.cp-social-github .cp-social-glow {
+  background-color: #6cc644;
+  box-shadow: 0 0 20px #6cc644;
+}
+
+.cp-social-instagram {
+  border-color: #e1306c;
+  color: #e1306c;
+}
+
+.cp-social-instagram .cp-social-glow {
+  background-color: #e1306c;
+  box-shadow: 0 0 20px #e1306c;
+}
+
+.cp-social-email {
+  border-color: #00ffff;
+  color: #00ffff;
+}
+
+.cp-social-email .cp-social-glow {
+  background-color: #00ffff;
+  box-shadow: 0 0 20px #00ffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cp-contact-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .cp-social-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cp-contact-title {
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+  }
+}

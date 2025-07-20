@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/style.css';
+import '../styles/cyberpunk-header.css'
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);

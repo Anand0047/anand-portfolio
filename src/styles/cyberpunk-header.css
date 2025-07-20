@@ -1,0 +1,62 @@
+/* Cyberpunk Header Responsive Toggle at 492.52px */
+@media (max-width: 1300.52px) {
+  .cp-nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(10, 10, 20, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid rgba(0, 255, 255, 0.3);
+    transition: right 0.3s ease;
+    padding: 2rem 0;
+  }
+
+  .cp-nav-menu.cp-active {
+    right: 0;
+  }
+
+  .cp-nav-item {
+    margin: 1.5rem 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .cp-nav-link {
+    display: block;
+    padding: 0.8rem 1rem;
+  }
+
+  .cp-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .cp-hamburger-bar {
+    height: 3px;
+    width: 100%;
+    background: #00ffff;
+    transition: all 0.3s ease;
+  }
+
+  .cp-hamburger.cp-active .cp-hamburger-bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+
+  .cp-hamburger.cp-active .cp-hamburger-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .cp-hamburger.cp-active .cp-hamburger-bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+}
