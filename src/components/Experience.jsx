@@ -8,7 +8,7 @@ const Experience = () => {
       "title": "Master of Computer Applications",
       "subtitle": "SRM University, Chennai",
       "date": "2024 - Present",
-      "description": "8/10 CGPA",
+      "description": "9.04/10 CGPA",
       "neonColor": "cp-tl-neon-cyan"
     },
     {

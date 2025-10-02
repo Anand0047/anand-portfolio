@@ -1,24 +1,33 @@
 import React from 'react';
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      name: 'Languages',
-      items: ['Java ', 'JavaScript',' SQL', 'Python' ,'HTML','CSS']
-    },
-    {
-      name: 'Web Frameworks',
-      items: ['Spring boot', 'React.js', 'Bootstrap']
-    },
-    {
-      name: 'Developer Tools',
-      items: ['GitHub', 'MySQl', 'VS Code']
-    },
-    {
-      name: 'Operating Systems:',
-      items: ['Windows', 'linux']
-    }
-  ];
+const skillCategories = [
+  {
+    name: 'Languages & Web',
+    items: ['Java', 'JavaScript', 'SQL', 'HTML', 'CSS']
+  },
+  {
+    name: 'Frameworks & Libraries',
+    items: ['Spring Boot', 'Spring Security', 'Spring JPA', 'JDBC', 'React.js']
+  },
+  {
+    name: 'Developer Tools',
+    items: ['Git', 'GitHub', 'Postman', 'Maven', 'Docker']
+  },
+  {
+    name: 'Practices',
+    items: ['RESTful API Design', 'JWT Authentication', 'OAuth 2.0']
+  },
+  {
+    name: 'Software Engineering',
+    items: ['SOLID Principles', 'Design Patterns', 'DSA', 'OOP', 'System Design', 'Problem Solving']
+  },
+  {
+    name: 'CS Fundamentals',
+    items: ['DBMS', 'Operating Systems']
+  }
+];
+
 
   return (
     <section id="skills" className="cyberpunk-skills-section">

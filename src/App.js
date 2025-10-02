@@ -39,10 +39,10 @@ return (
           <Header />
           <main>
             <HomeSection />
-            <Projects />
             <About />
             <Skills />
             <InternshipExperience/>
+            <Projects />
             <Certifications />
             <Experience />
             <Contact />
@@ -59,7 +59,7 @@ return (
 function HomeSection() {
   const downloadResume = async () => {
     window.open(
-      `https://drive.google.com/file/d/1l9i7h9P1b8ECm-0IqsRGMSZcj5FnAct_/view?usp=sharing`,
+      `https://drive.google.com/file/d/1THWN161hS-sJxypWLpk7zcfYGQKE5sCv/view?usp=sharing`,
       '_blank'
     );
   };

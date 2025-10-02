@@ -7,7 +7,7 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'BringMyCart (Ongoing)',
+      title: 'BringMyCart',
       description: 'Currently building a smart shopping assistant that integrates a browser extension and web application to help users track and manage products from Amazon in one place.',
       tech: ['JAVA', 'SPRING BOOT', 'REACT.JS', 'MYSQL'],
       pulse: true
@@ -29,9 +29,9 @@ const Projects = () => {
       neon: 'blue'
     },
     {
-      title: 'Portfolio Nexus',
-      description: 'Advanced personal portfolio website with interactive 3D elements and real-time analytics.',
-      tech: ['REACT', 'THREE.JS', 'GSAP'],
+      title: 'Portfolio',
+      description: 'Advanced personal portfolio website with interactive 3D elements',
+      tech: ['REACT'],
       neon: 'purple'
     },
     {
@@ -62,7 +62,7 @@ const Projects = () => {
     {
       platform: 'LEETCODE',
       achievement: 'CODING GLADIATOR',
-      details: '100+ Algorithms Solved | Daily Streak',
+      details: '150+ Algorithms Solved | Daily Streak',
       icon: 'fa-code',
       link: 'https://leetcode.com/u/_anand47_/',
       glow: 'yellow'
